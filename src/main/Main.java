@@ -19,7 +19,7 @@ public class Main extends Application {
         try {
             Parent root = loader.load();
             primaryStage.setTitle("TOA API Tester");
-            primaryStage.setScene(new Scene(root, 1024, 768));
+            primaryStage.setScene(new Scene(root, 300, 500));
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("images/app_ico.png")));
             primaryStage.show();
 
