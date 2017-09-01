@@ -1,35 +1,33 @@
 package main.classes;
 
-import org.json.simple.JSONObject;
-
 /**
  * Created by SPZ Productions on 8/28/2017.
  */
 public class Event {
-    private String EventID;
-    private String SeasonID;
-    private String RegionID;
-    private String LeagueID;
-    private String EventCode;
-    private String EventRegionNum;
-    private String DivisionID;
-    private String EventTypeID;
-    private String EventName;
-    private String DivisionName;
-    private String StartDate;
-    private String EndDate;
-    private String WeekID;
-    private String City;
-    private String StateProv;
-    private String Country;
-    private String Venue;
-    private String EventWebsite;
-    private String TimeZone;
-    private String ActiveTournamentLevel;
-    private String AllianceCount;
-    private String NumberOfFields;
-    private String AdvanceSpots;
-    private String AdvancementEvent;
+    private Object EventID;
+    private Object SeasonID;
+    private Object RegionID;
+    private Object LeagueID;
+    private Object EventCode;
+    private Object EventRegionNum;
+    private Object DivisionID;
+    private Object EventTypeID;
+    private Object EventName;
+    private Object DivisionName;
+    private Object StartDate;
+    private Object EndDate;
+    private Object WeekID;
+    private Object City;
+    private Object StateProv;
+    private Object Country;
+    private Object Venue;
+    private Object EventWebsite;
+    private Object TimeZone;
+    private Object ActiveTournamentLevel;
+    private Object AllianceCount;
+    private Object NumberOfFields;
+    private Object AdvanceSpots;
+    private Object AdvancementEvent;
 
     public Event(){
         this.EventID = "";
@@ -58,10 +56,10 @@ public class Event {
         this.AdvancementEvent = "";
     }
 
-    public Event(String EventID, String SeasonID, String RegionID, String LeagueID, String EventCode, String EventRegionNum, String DivisionID,
-                 String EventTypeID, String EventName, String DivisionName, String StartDate, String EndDate, String WeekID, String City,
-                 String StateProv, String Country, String Venue, String EventWebsite, String TimeZone, String ActiveTournamentLevel,
-                 String AllianceCount, String NumberOfFields, String AdvanceSpots, String AdvancementEvent){
+    public Event(Object EventID, Object SeasonID, Object RegionID, Object LeagueID, Object EventCode, Object EventRegionNum, Object DivisionID,
+                 Object EventTypeID, Object EventName, Object DivisionName, Object StartDate, Object EndDate, Object WeekID, Object City,
+                 Object StateProv, Object Country, Object Venue, Object EventWebsite, Object TimeZone, Object ActiveTournamentLevel,
+                 Object AllianceCount, Object NumberOfFields, Object AdvanceSpots, Object AdvancementEvent){
 
         this.EventID = EventID;
         this.SeasonID = SeasonID;
@@ -91,221 +89,221 @@ public class Event {
     }
 
     public Event(JSONObject json){
-        this.EventID = json.get("event_code").toString();
-        this.SeasonID = json.get("season_key").toString();
-        this.RegionID = json.get("region_key").toString();
-        this.LeagueID = json.get("league_key").toString();
-        this.EventCode = json.get("event_key").toString();
-        this.EventRegionNum = json.get("event_region_number").toString();
-        this.DivisionID = json.get("division_id").toString();
-        this.EventTypeID = json.get("event_type").toString();
-        this.EventName = json.get("event_name").toString();
-        this.DivisionName = json.get("division_name").toString();
-        this.StartDate = json.get("start_date").toString();
-        this.EndDate = json.get("end_date").toString();
-        this.WeekID = json.get("week_key").toString();
-        this.City = json.get("city").toString();
-        this.StateProv = json.get("state_prov").toString();
-        this.Country = json.get("country").toString();
-        this.Venue = json.get("venue").toString();
-        this.EventWebsite = json.get("event_website").toString();
-        this.TimeZone = json.get("time_zone").toString();
-        this.ActiveTournamentLevel = json.get("tournament_level").toString();
-        this.AllianceCount = json.get("alliance_count").toString();
-        this.NumberOfFields = json.get("fields").toString();
-        this.AdvanceSpots = json.get("advancement_spots").toString();
-        this.AdvancementEvent = json.get("advancement_event").toString();
+        this.EventID = json.get("event_code");
+        this.SeasonID = json.get("season_key");
+        this.RegionID = json.get("region_key");
+        this.LeagueID = json.get("league_key");
+        this.EventCode = json.get("event_key");
+        this.EventRegionNum = json.get("event_region_number");
+        this.DivisionID = json.get("division_id");
+        this.EventTypeID = json.get("event_type");
+        this.EventName = json.get("event_name");
+        this.DivisionName = json.get("division_name");
+        this.StartDate = json.get("start_date");
+        this.EndDate = json.get("end_date");
+        this.WeekID = json.get("week_key");
+        this.City = json.get("city");
+        this.StateProv = json.get("state_prov");
+        this.Country = json.get("country");
+        this.Venue = json.get("venue");
+        this.EventWebsite = json.get("event_website");
+        this.TimeZone = json.get("time_zone");
+        this.ActiveTournamentLevel = json.get("tournament_level");
+        this.AllianceCount = json.get("alliance_count");
+        this.NumberOfFields = json.get("fields");
+        this.AdvanceSpots = json.get("advancement_spots");
+        this.AdvancementEvent = json.get("advancement_event");
     }
 
-    public String getEventID() {
+    public Object getEventID() {
         return EventID;
     }
 
-    public void setEventID(String eventID) {
+    public void setEventID(Object eventID) {
         EventID = eventID;
     }
 
-    public String getSeasonID() {
+    public Object getSeasonID() {
         return SeasonID;
     }
 
-    public void setSeasonID(String seasonID) {
+    public void setSeasonID(Object seasonID) {
         SeasonID = seasonID;
     }
 
-    public String getRegionID() {
+    public Object getRegionID() {
         return RegionID;
     }
 
-    public void setRegionID(String regionID) {
+    public void setRegionID(Object regionID) {
         RegionID = regionID;
     }
 
-    public String getLeagueID() {
+    public Object getLeagueID() {
         return LeagueID;
     }
 
-    public void setLeagueID(String leagueID) {
+    public void setLeagueID(Object leagueID) {
         LeagueID = leagueID;
     }
 
-    public String getEventCode() {
+    public Object getEventCode() {
         return EventCode;
     }
 
-    public void setEventCode(String eventCode) {
+    public void setEventCode(Object eventCode) {
         EventCode = eventCode;
     }
 
-    public String getEventRegionNum() {
+    public Object getEventRegionNum() {
         return EventRegionNum;
     }
 
-    public void setEventRegionNum(String eventRegionNum) {
+    public void setEventRegionNum(Object eventRegionNum) {
         EventRegionNum = eventRegionNum;
     }
 
-    public String getDivisionID() {
+    public Object getDivisionID() {
         return DivisionID;
     }
 
-    public void setDivisionID(String divisionID) {
+    public void setDivisionID(Object divisionID) {
         DivisionID = divisionID;
     }
 
-    public String getEventTypeID() {
+    public Object getEventTypeID() {
         return EventTypeID;
     }
 
-    public void setEventTypeID(String eventTypeID) {
+    public void setEventTypeID(Object eventTypeID) {
         EventTypeID = eventTypeID;
     }
 
-    public String getEventName() {
+    public Object getEventName() {
         return EventName;
     }
 
-    public void setEventName(String eventName) {
+    public void setEventName(Object eventName) {
         EventName = eventName;
     }
 
-    public String getDivisionName() {
+    public Object getDivisionName() {
         return DivisionName;
     }
 
-    public void setDivisionName(String divisionName) {
+    public void setDivisionName(Object divisionName) {
         DivisionName = divisionName;
     }
 
-    public String getStartDate() {
+    public Object getStartDate() {
         return StartDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Object startDate) {
         StartDate = startDate;
     }
 
-    public String getEndDate() {
+    public Object getEndDate() {
         return EndDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(Object endDate) {
         EndDate = endDate;
     }
 
-    public String getWeekID() {
+    public Object getWeekID() {
         return WeekID;
     }
 
-    public void setWeekID(String weekID) {
+    public void setWeekID(Object weekID) {
         WeekID = weekID;
     }
 
-    public String getCity() {
+    public Object getCity() {
         return City;
     }
 
-    public void setCity(String city) {
+    public void setCity(Object city) {
         City = city;
     }
 
-    public String getStateProv() {
+    public Object getStateProv() {
         return StateProv;
     }
 
-    public void setStateProv(String stateProv) {
+    public void setStateProv(Object stateProv) {
         StateProv = stateProv;
     }
 
-    public String getCountry() {
+    public Object getCountry() {
         return Country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Object country) {
         Country = country;
     }
 
-    public String getVenue() {
+    public Object getVenue() {
         return Venue;
     }
 
-    public void setVenue(String venue) {
+    public void setVenue(Object venue) {
         Venue = venue;
     }
 
-    public String getEventWebsite() {
+    public Object getEventWebsite() {
         return EventWebsite;
     }
 
-    public void setEventWebsite(String eventWebsite) {
+    public void setEventWebsite(Object eventWebsite) {
         EventWebsite = eventWebsite;
     }
 
-    public String getTimeZone() {
+    public Object getTimeZone() {
         return TimeZone;
     }
 
-    public void setTimeZone(String timeZone) {
+    public void setTimeZone(Object timeZone) {
         TimeZone = timeZone;
     }
 
-    public String getActiveTournamentLevel() {
+    public Object getActiveTournamentLevel() {
         return ActiveTournamentLevel;
     }
 
-    public void setActiveTournamentLevel(String activeTournamentLevel) {
+    public void setActiveTournamentLevel(Object activeTournamentLevel) {
         ActiveTournamentLevel = activeTournamentLevel;
     }
 
-    public String getAllianceCount() {
+    public Object getAllianceCount() {
         return AllianceCount;
     }
 
-    public void setAllianceCount(String allianceCount) {
+    public void setAllianceCount(Object allianceCount) {
         AllianceCount = allianceCount;
     }
 
-    public String getNumberOfFields() {
+    public Object getNumberOfFields() {
         return NumberOfFields;
     }
 
-    public void setNumberOfFields(String numberOfFields) {
+    public void setNumberOfFields(Object numberOfFields) {
         NumberOfFields = numberOfFields;
     }
 
-    public String getAdvanceSpots() {
+    public Object getAdvanceSpots() {
         return AdvanceSpots;
     }
 
-    public void setAdvanceSpots(String advanceSpots) {
+    public void setAdvanceSpots(Object advanceSpots) {
         AdvanceSpots = advanceSpots;
     }
 
-    public String getAdvancementEvent() {
+    public Object getAdvancementEvent() {
         return AdvancementEvent;
     }
 
-    public void setAdvancementEvent(String advancementEvent) {
+    public void setAdvancementEvent(Object advancementEvent) {
         AdvancementEvent = advancementEvent;
     }
 }

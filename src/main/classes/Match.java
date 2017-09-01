@@ -1,46 +1,41 @@
 package main.classes;
 
-import org.json.simple.JSONObject;
-import javax.xml.transform.Result;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
  * Created by SPZ Productions on 8/12/2017.
  */
 public class Match {
 
-    private String MatchID;
-    private String EventID;
-    private String TournamentLevel;
-    private String ScheduleTime;
-    private String MatchName;
-    private String PlayNumber;
-    private String FieldNumber;
-    private String PreStartInitialTime;
-    private String PreStartFinalTime;
-    private String PreStartCount;
-    private String AutoStartTime;
-    private String AutoEndTime;
-    private String TeleopStartTime;
-    private String TeleopEndTime;
-    private String RefCommitTime;
-    private String ScoreKeeperCommitTime;
-    private String ScorePostTime;
-    private String CancelMatchTime;
-    private String CycleTime;
-    private String RedScore;
-    private String BlueScore;
-    private String RedPenalty;
-    private String BluePenalty;
-    private String RedAutoScore;
-    private String BlueAutoScore;
-    private String RedTeleScore;
-    private String BlueTeleScore;
-    private String RedEndScore;
-    private String BlueEndScore;
-    private String HeadRefReview;
-    private String VideoURL;
+    private Object MatchID;
+    private Object EventID;
+    private Object TournamentLevel;
+    private Object ScheduleTime;
+    private Object MatchName;
+    private Object PlayNumber;
+    private Object FieldNumber;
+    private Object PreStartInitialTime;
+    private Object PreStartFinalTime;
+    private Object PreStartCount;
+    private Object AutoStartTime;
+    private Object AutoEndTime;
+    private Object TeleopStartTime;
+    private Object TeleopEndTime;
+    private Object RefCommitTime;
+    private Object ScoreKeeperCommitTime;
+    private Object ScorePostTime;
+    private Object CancelMatchTime;
+    private Object CycleTime;
+    private Object RedScore;
+    private Object BlueScore;
+    private Object RedPenalty;
+    private Object BluePenalty;
+    private Object RedAutoScore;
+    private Object BlueAutoScore;
+    private Object RedTeleScore;
+    private Object BlueTeleScore;
+    private Object RedEndScore;
+    private Object BlueEndScore;
+    private Object HeadRefReview;
+    private Object VideoURL;
 
     public Match(){
         this.MatchID = "";
@@ -76,46 +71,12 @@ public class Match {
         this.VideoURL = "";
     }
 
-    public Match(ResultSet rs) throws SQLException {
-        this.MatchID = rs.getString("MatchID");
-        this.EventID = rs.getString("EventID");
-        this.TournamentLevel = rs.getString("TournamentLevel");
-        this.ScheduleTime = rs.getString("ScheduleTime");
-        this.MatchName = rs.getString("MatchName");
-        this.PlayNumber = rs.getString("PlayNumber");
-        this.FieldNumber = rs.getString("FieldNumber");
-        this.PreStartInitialTime = rs.getString("PreStartInitialTime");
-        this.PreStartFinalTime = rs.getString("PreStartFinalTime");
-        this.PreStartCount = rs.getString("PreStartCount");
-        this.AutoStartTime = rs.getString("AutoStartTime");
-        this.AutoEndTime = rs.getString("AutoEndTime");
-        this.TeleopStartTime = rs.getString("TeleopStartTime");
-        this.TeleopEndTime = rs.getString("TeleopEndTime");
-        this.RefCommitTime = rs.getString("RefCommitTime");
-        this.ScoreKeeperCommitTime = rs.getString("ScoreKeeperCommitTime");
-        this.ScorePostTime = rs.getString("ScorePostTime");
-        this.CancelMatchTime = rs.getString("CancelMatchTime");
-        this.CycleTime = rs.getString("CycleTime");
-        this.RedScore = rs.getString("RedScore");
-        this.BlueScore = rs.getString("BlueScore");
-        this.RedPenalty = rs.getString("RedPenalty");
-        this.BluePenalty = rs.getString("BluePenalty");
-        this.RedAutoScore = rs.getString("RedAutoScore");
-        this.BlueAutoScore = rs.getString("BlueAutoScore");
-        this.RedTeleScore = rs.getString("RedTeleScore");
-        this.BlueTeleScore = rs.getString("BlueTeleScore");
-        this.RedEndScore = rs.getString("RedEndScore");
-        this.BlueEndScore = rs.getString("BlueEndScore");
-        this.HeadRefReview = rs.getString("HeadRefReview");
-        this.VideoURL = rs.getString("VideoURL");
-    }
-
-    public Match(String MatchID, String EventID, String TournamentLevel, String ScheduleTime, String MatchName, String PlayNumber,
-                 String FieldNumber, String PreStartInitialTime, String PreStartFinalTime, String PreStartCount, String AutoStartTime,
-                 String AutoEndTime, String TeleopStartTime, String TeleopEndTime, String RefCommitTime, String ScoreKeeperCommitTime, String ScorePostTime,
-                 String CancelMatchTime, String CycleTime, String RedScore, String BlueScore, String RedPenalty, String BluePenalty,
-                 String RedAutoScore, String BlueAutoScore, String RedTeleScore, String BlueTeleScore, String RedEndScore,
-                 String BlueEndScore, String HeadRefReview, String VideoURL, String CreatedBy, String CreatedOn, String ModifiedBy, String ModifiedOn,
+    public Match(Object MatchID, Object EventID, Object TournamentLevel, Object ScheduleTime, Object MatchName, Object PlayNumber,
+                 Object FieldNumber, Object PreStartInitialTime, Object PreStartFinalTime, Object PreStartCount, Object AutoStartTime,
+                 Object AutoEndTime, Object TeleopStartTime, Object TeleopEndTime, Object RefCommitTime, Object ScoreKeeperCommitTime, Object ScorePostTime,
+                 Object CancelMatchTime, Object CycleTime, Object RedScore, Object BlueScore, Object RedPenalty, Object BluePenalty,
+                 Object RedAutoScore, Object BlueAutoScore, Object RedTeleScore, Object BlueTeleScore, Object RedEndScore,
+                 Object BlueEndScore, Object HeadRefReview, Object VideoURL, Object CreatedBy, Object CreatedOn, Object ModifiedBy, Object ModifiedOn,
                  ScheduleStation red1, ScheduleStation red2,ScheduleStation red3,ScheduleStation blue1,ScheduleStation blue2,ScheduleStation blue3){
         this.MatchID = MatchID;
         this.EventID = EventID;
@@ -151,284 +112,284 @@ public class Match {
     }
 
     public Match(JSONObject json){
-        this.MatchID = json.get("MatchID").toString();
-        this.EventID = json.get("EventID").toString();
-        this.TournamentLevel = json.get("TournamentLevel").toString();
-        this.ScheduleTime = json.get("ScheduleTime").toString();
-        this.MatchName = json.get("MatchName").toString();
-        this.PlayNumber = json.get("PlayNumber").toString();
-        this.FieldNumber = json.get("FieldNumber").toString();
-        this.PreStartInitialTime = json.get("PreStartInitialTime").toString();
-        this.PreStartFinalTime = json.get("PreStartFinalTime").toString();
-        this.PreStartCount = json.get("PreStartCount").toString();
-        this.AutoStartTime = json.get("AutoStartTime").toString();
-        this.AutoEndTime = json.get("AutoEndTime").toString();
-        this.TeleopStartTime = json.get("TeleopStartTime").toString();
-        this.TeleopEndTime = json.get("TeleopEndTime").toString();
-        this.RefCommitTime = json.get("RefCommitTime").toString();
-        this.ScoreKeeperCommitTime = json.get("ScoreKeeperCommitTime").toString();
-        this.ScorePostTime = json.get("ScorePostTime").toString();
-        this.CancelMatchTime = json.get("CancelMatchTime").toString();
-        this.CycleTime = json.get("CycleTime").toString();
-        this.RedScore = json.get("RedScore").toString();
-        this.BlueScore = json.get("BlueScore").toString();
-        this.RedPenalty = json.get("RedPenalty").toString();
-        this.BluePenalty = json.get("BluePenalty").toString();
-        this.RedAutoScore = json.get("RedAutoScore").toString();
-        this.BlueAutoScore = json.get("BlueAutoScore").toString();
-        this.RedTeleScore = json.get("RedTeleScore").toString();
-        this.BlueTeleScore = json.get("BlueTeleScore").toString();
-        this.RedEndScore = json.get("RedEndScore").toString();
-        this.BlueEndScore = json.get("BlueEndScore").toString();
-        this.HeadRefReview = json.get("HeadRefReview").toString();
-        this.VideoURL = json.get("VideoURL").toString();
+        this.MatchID = json.get("MatchID");
+        this.EventID = json.get("EventID");
+        this.TournamentLevel = json.get("TournamentLevel");
+        this.ScheduleTime = json.get("ScheduleTime");
+        this.MatchName = json.get("MatchName");
+        this.PlayNumber = json.get("PlayNumber");
+        this.FieldNumber = json.get("FieldNumber");
+        this.PreStartInitialTime = json.get("PreStartInitialTime");
+        this.PreStartFinalTime = json.get("PreStartFinalTime");
+        this.PreStartCount = json.get("PreStartCount");
+        this.AutoStartTime = json.get("AutoStartTime");
+        this.AutoEndTime = json.get("AutoEndTime");
+        this.TeleopStartTime = json.get("TeleopStartTime");
+        this.TeleopEndTime = json.get("TeleopEndTime");
+        this.RefCommitTime = json.get("RefCommitTime");
+        this.ScoreKeeperCommitTime = json.get("ScoreKeeperCommitTime");
+        this.ScorePostTime = json.get("ScorePostTime");
+        this.CancelMatchTime = json.get("CancelMatchTime");
+        this.CycleTime = json.get("CycleTime");
+        this.RedScore = json.get("RedScore");
+        this.BlueScore = json.get("BlueScore");
+        this.RedPenalty = json.get("RedPenalty");
+        this.BluePenalty = json.get("BluePenalty");
+        this.RedAutoScore = json.get("RedAutoScore");
+        this.BlueAutoScore = json.get("BlueAutoScore");
+        this.RedTeleScore = json.get("RedTeleScore");
+        this.BlueTeleScore = json.get("BlueTeleScore");
+        this.RedEndScore = json.get("RedEndScore");
+        this.BlueEndScore = json.get("BlueEndScore");
+        this.HeadRefReview = json.get("HeadRefReview");
+        this.VideoURL = json.get("VideoUrl");
     }
 
-    public String getTeleopStartTime() {
+    public Object getTeleopStartTime() {
         return TeleopStartTime;
     }
 
-    public void setTeleopStartTime(String teleopStartTime) {
+    public void setTeleopStartTime(Object teleopStartTime) {
         TeleopStartTime = teleopStartTime;
     }
 
-    public String getMatchID() {
+    public Object getMatchID() {
         return MatchID;
     }
 
-    public void setMatchID(String matchID) {
+    public void setMatchID(Object matchID) {
         MatchID = matchID;
     }
 
-    public String getEventID() {
+    public Object getEventID() {
         return EventID;
     }
 
-    public void setEventID(String eventID) {
+    public void setEventID(Object eventID) {
         EventID = eventID;
     }
 
-    public String getTournamentLevel() {
+    public Object getTournamentLevel() {
         return TournamentLevel;
     }
 
-    public void setTournamentLevel(String tournamentLevel) {
+    public void setTournamentLevel(Object tournamentLevel) {
         TournamentLevel = tournamentLevel;
     }
 
-    public String getScheduleTime() {
+    public Object getScheduleTime() {
         return ScheduleTime;
     }
 
-    public void setScheduleTime(String scheduleTime) {
+    public void setScheduleTime(Object scheduleTime) {
         ScheduleTime = scheduleTime;
     }
 
-    public String getMatchName() {
+    public Object getMatchName() {
         return MatchName;
     }
 
-    public void setMatchName(String matchName) {
+    public void setMatchName(Object matchName) {
         MatchName = matchName;
     }
 
-    public String getPlayNumber() {
+    public Object getPlayNumber() {
         return PlayNumber;
     }
 
-    public void setPlayNumber(String playNumber) {
+    public void setPlayNumber(Object playNumber) {
         PlayNumber = playNumber;
     }
 
-    public String getFieldNumber() {
+    public Object getFieldNumber() {
         return FieldNumber;
     }
 
-    public void setFieldNumber(String fieldNumber) {
+    public void setFieldNumber(Object fieldNumber) {
         FieldNumber = fieldNumber;
     }
 
-    public String getPreStartInitialTime() {
+    public Object getPreStartInitialTime() {
         return PreStartInitialTime;
     }
 
-    public void setPreStartInitialTime(String preStartInitialTime) {
+    public void setPreStartInitialTime(Object preStartInitialTime) {
         PreStartInitialTime = preStartInitialTime;
     }
 
-    public String getPreStartFinalTime() {
+    public Object getPreStartFinalTime() {
         return PreStartFinalTime;
     }
 
-    public void setPreStartFinalTime(String preStartFinalTime) {
+    public void setPreStartFinalTime(Object preStartFinalTime) {
         PreStartFinalTime = preStartFinalTime;
     }
 
-    public String getPreStartCount() {
+    public Object getPreStartCount() {
         return PreStartCount;
     }
 
-    public void setPreStartCount(String preStartCount) {
+    public void setPreStartCount(Object preStartCount) {
         PreStartCount = preStartCount;
     }
 
-    public String getAutoStartTime() {
+    public Object getAutoStartTime() {
         return AutoStartTime;
     }
 
-    public void setAutoStartTime(String autoStartTime) {
+    public void setAutoStartTime(Object autoStartTime) {
         AutoStartTime = autoStartTime;
     }
 
-    public String getAutoEndTime() {
+    public Object getAutoEndTime() {
         return AutoEndTime;
     }
 
-    public void setAutoEndTime(String autoEndTime) {
+    public void setAutoEndTime(Object autoEndTime) {
         AutoEndTime = autoEndTime;
     }
 
-    public String getTeleopEndTime() {
+    public Object getTeleopEndTime() {
         return TeleopEndTime;
     }
 
-    public void setTeleopEndTime(String teleopEndTime) {
+    public void setTeleopEndTime(Object teleopEndTime) {
         TeleopEndTime = teleopEndTime;
     }
 
-    public String getRefCommitTime() {
+    public Object getRefCommitTime() {
         return RefCommitTime;
     }
 
-    public void setRefCommitTime(String refCommitTime) {
+    public void setRefCommitTime(Object refCommitTime) {
         RefCommitTime = refCommitTime;
     }
 
-    public String getScoreKeeperCommitTime() {
+    public Object getScoreKeeperCommitTime() {
         return ScoreKeeperCommitTime;
     }
 
-    public void setScoreKeeperCommitTime(String scoreKeeperCommitTime) {
+    public void setScoreKeeperCommitTime(Object scoreKeeperCommitTime) {
         ScoreKeeperCommitTime = scoreKeeperCommitTime;
     }
 
-    public String getScorePostTime() {
+    public Object getScorePostTime() {
         return ScorePostTime;
     }
 
-    public void setScorePostTime(String scorePostTime) {
+    public void setScorePostTime(Object scorePostTime) {
         ScorePostTime = scorePostTime;
     }
 
-    public String getCancelMatchTime() {
+    public Object getCancelMatchTime() {
         return CancelMatchTime;
     }
 
-    public void setCancelMatchTime(String cancelMatchTime) {
+    public void setCancelMatchTime(Object cancelMatchTime) {
         CancelMatchTime = cancelMatchTime;
     }
 
-    public String getCycleTime() {
+    public Object getCycleTime() {
         return CycleTime;
     }
 
-    public void setCycleTime(String cycleTime) {
+    public void setCycleTime(Object cycleTime) {
         CycleTime = cycleTime;
     }
 
-    public String getRedScore() {
+    public Object getRedScore() {
         return RedScore;
     }
 
-    public void setRedScore(String redScore) {
+    public void setRedScore(Object redScore) {
         RedScore = redScore;
     }
 
-    public String getBlueScore() {
+    public Object getBlueScore() {
         return BlueScore;
     }
 
-    public void setBlueScore(String blueScore) {
+    public void setBlueScore(Object blueScore) {
         BlueScore = blueScore;
     }
 
-    public String getRedPenalty() {
+    public Object getRedPenalty() {
         return RedPenalty;
     }
 
-    public void setRedPenalty(String redPenalty) {
+    public void setRedPenalty(Object redPenalty) {
         RedPenalty = redPenalty;
     }
 
-    public String getBluePenalty() {
+    public Object getBluePenalty() {
         return BluePenalty;
     }
 
-    public void setBluePenalty(String bluePenalty) {
+    public void setBluePenalty(Object bluePenalty) {
         BluePenalty = bluePenalty;
     }
 
-    public String getRedAutoScore() {
+    public Object getRedAutoScore() {
         return RedAutoScore;
     }
 
-    public void setRedAutoScore(String redAutoScore) {
+    public void setRedAutoScore(Object redAutoScore) {
         RedAutoScore = redAutoScore;
     }
 
-    public String getBlueAutoScore() {
+    public Object getBlueAutoScore() {
         return BlueAutoScore;
     }
 
-    public void setBlueAutoScore(String blueAutoScore) {
+    public void setBlueAutoScore(Object blueAutoScore) {
         BlueAutoScore = blueAutoScore;
     }
 
-    public String getRedTeleScore() {
+    public Object getRedTeleScore() {
         return RedTeleScore;
     }
 
-    public void setRedTeleScore(String redTeleScore) {
+    public void setRedTeleScore(Object redTeleScore) {
         RedTeleScore = redTeleScore;
     }
 
-    public String getBlueTeleScore() {
+    public Object getBlueTeleScore() {
         return BlueTeleScore;
     }
 
-    public void setBlueTeleScore(String blueTeleScore) {
+    public void setBlueTeleScore(Object blueTeleScore) {
         BlueTeleScore = blueTeleScore;
     }
 
-    public String getRedEndScore() {
+    public Object getRedEndScore() {
         return RedEndScore;
     }
 
-    public void setRedEndScore(String redEndScore) {
+    public void setRedEndScore(Object redEndScore) {
         RedEndScore = redEndScore;
     }
 
-    public String getBlueEndScore() {
+    public Object getBlueEndScore() {
         return BlueEndScore;
     }
 
-    public void setBlueEndScore(String blueEndScore) {
+    public void setBlueEndScore(Object blueEndScore) {
         BlueEndScore = blueEndScore;
     }
 
-    public String getHeadRefReview() {
+    public Object getHeadRefReview() {
         return HeadRefReview;
     }
 
-    public void setHeadRefReview(String headRefReview) {
+    public void setHeadRefReview(Object headRefReview) {
         HeadRefReview = headRefReview;
     }
 
-    public String getVideoURL() {
+    public Object getVideoURL() {
         return VideoURL;
     }
 
-    public void setVideoURL(String videoURL) {
+    public void setVideoURL(Object videoURL) {
         VideoURL = videoURL;
     }
 }

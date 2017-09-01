@@ -1,38 +1,35 @@
 package main.classes;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
  * Created by SPZ Productions on 8/26/2017.
  */
 public class MatchDetails {
-    String MatchDtlKey = "";
-    String MatchID = "";
-    String RedAutoBeacons = "";
-    String RedAutoCap = "";
-    String RedAutoPartCen = "";
-    String RedAutoPartCor = "";
-    String RedAutoRobot1 = "";
-    String RedAutoRobot2 = "";
-    String RedDriverBeacons = "";
-    String RedDriverPartCen = "";
-    String RedDriverPartCor = "";
-    String RedDriverCap = "";
-    String RedPenMaj = "";
-    String RedPenMin = "";
-    String BlueAutoBeacons = "";
-    String BlueAutoCap = "";
-    String BlueAutoPartCen = "";
-    String BlueAutoPartCor = "";
-    String BlueAutoRobot1 = "";
-    String BlueAutoRobot2 = "";
-    String BlueDriverBeacons = "";
-    String BlueDriverPartCen = "";
-    String BlueDriverPartCor = "";
-    String BlueDriverCap = "";
-    String BluePenMaj = "";
-    String BluePenMin = "";
+    private Object MatchDtlKey;
+    private Object MatchID;
+    private Object RedAutoBeacons;
+    private Object RedAutoCap;
+    private Object RedAutoPartCen;
+    private Object RedAutoPartCor;
+    private Object RedAutoRobot1;
+    private Object RedAutoRobot2;
+    private Object RedDriverBeacons;
+    private Object RedDriverPartCen;
+    private Object RedDriverPartCor;
+    private Object RedDriverCap;
+    private Object RedPenMaj;
+    private Object RedPenMin;
+    private Object BlueAutoBeacons;
+    private Object BlueAutoCap;
+    private Object BlueAutoPartCen;
+    private Object BlueAutoPartCor;
+    private Object BlueAutoRobot1;
+    private Object BlueAutoRobot2;
+    private Object BlueDriverBeacons;
+    private Object BlueDriverPartCen;
+    private Object BlueDriverPartCor;
+    private Object BlueDriverCap;
+    private Object BluePenMaj;
+    private Object BluePenMin;
 
     public MatchDetails(){
         this.MatchDtlKey = "";
@@ -63,10 +60,10 @@ public class MatchDetails {
         this.BluePenMin = "";
     }
 
-    public MatchDetails(String MatchDtlKey, String MatchID, String RedAutoBeacons, String RedAutoCap, String RedAutoPartCen, String RedAutoPartCor, String RedAutoRobot1,
-                        String RedAutoRobot2, String RedDriverBeacons, String RedDriverPartCen, String RedDriverPartCor, String RedDriverCap, String RedPenMaj, String RedPenMin,
-                        String BlueAutoBeacons, String BlueAutoCap, String BlueAutoPartCen, String BlueAutoPartCor, String BlueAutoRobot1, String BlueAutoRobot2, String BlueDriverBeacons,
-                        String BlueDriverPartCen, String BlueDriverPartCor, String BlueDriverCap, String BluePenMaj, String BluePenMin){
+    public MatchDetails(Object MatchDtlKey, Object MatchID, Object RedAutoBeacons, Object RedAutoCap, Object RedAutoPartCen, Object RedAutoPartCor, Object RedAutoRobot1,
+                        Object RedAutoRobot2, Object RedDriverBeacons, Object RedDriverPartCen, Object RedDriverPartCor, Object RedDriverCap, Object RedPenMaj, Object RedPenMin,
+                        Object BlueAutoBeacons, Object BlueAutoCap, Object BlueAutoPartCen, Object BlueAutoPartCor, Object BlueAutoRobot1, Object BlueAutoRobot2, Object BlueDriverBeacons,
+                        Object BlueDriverPartCen, Object BlueDriverPartCor, Object BlueDriverCap, Object BluePenMaj, Object BluePenMin){
 
         this.MatchDtlKey = MatchDtlKey;
         this.MatchID = MatchID;
@@ -96,241 +93,241 @@ public class MatchDetails {
         this.BluePenMin = BluePenMin;
     }
 
-    public MatchDetails(ResultSet rs) throws SQLException {
+    public MatchDetails(JSONObject json){
 
-        this.MatchDtlKey = rs.getString("MatchDtlKey");
-        this.MatchID = rs.getString("MatchID");
-        this.RedAutoBeacons = rs.getString("RedAutoBeacons");
-        this.RedAutoCap = rs.getString("RedAutoCap");
-        this.RedAutoPartCen = rs.getString("RedAutoPartCen");
-        this.RedAutoPartCor = rs.getString("RedAutoPartCor");
-        this.RedAutoRobot1 = rs.getString("RedAutoRobot1");
-        this.RedAutoRobot2 = rs.getString("RedAutoRobot2");
-        this.RedDriverBeacons = rs.getString("RedDriverBeacons");
-        this.RedDriverPartCen = rs.getString("RedDriverPartCen");
-        this.RedDriverPartCor = rs.getString("RedDriverPartCor");
-        this.RedDriverCap = rs.getString("RedDriverCap");
-        this.RedPenMaj = rs.getString("RedPenMaj");
-        this.RedPenMin = rs.getString("RedPenMin");
-        this.BlueAutoBeacons = rs.getString("BlueAutoBeacons");
-        this.BlueAutoCap = rs.getString("BlueAutoCap");
-        this.BlueAutoPartCen = rs.getString("BlueAutoPartCen");
-        this.BlueAutoPartCor = rs.getString("BlueAutoPartCor");
-        this.BlueAutoRobot1 = rs.getString("BlueAutoRobot1");
-        this.BlueAutoRobot2 = rs.getString("BlueAutoRobot2");
-        this.BlueDriverBeacons = rs.getString("BlueDriverBeacons");
-        this.BlueDriverPartCen = rs.getString("BlueDriverPartCen");
-        this.BlueDriverPartCor = rs.getString("BlueDriverPartCor");
-        this.BlueDriverCap = rs.getString("BlueDriverCap");
-        this.BluePenMaj = rs.getString("BluePenMaj");
-        this.BluePenMin = rs.getString("BluePenMin");
+        this.MatchDtlKey = json.get("MatchDtlKey");
+        this.MatchID = json.get("MatchID");
+        this.RedAutoBeacons = json.get("RedAutoBeacons");
+        this.RedAutoCap = json.get("RedAutoCap");
+        this.RedAutoPartCen = json.get("RedAutoPartCen");
+        this.RedAutoPartCor = json.get("RedAutoPartCor");
+        this.RedAutoRobot1 = json.get("RedAutoRobot1");
+        this.RedAutoRobot2 = json.get("RedAutoRobot2");
+        this.RedDriverBeacons = json.get("RedDriverBeacons");
+        this.RedDriverPartCen = json.get("RedDriverPartCen");
+        this.RedDriverPartCor = json.get("RedDriverPartCor");
+        this.RedDriverCap = json.get("RedDriverCap");
+        this.RedPenMaj = json.get("RedPenMaj");
+        this.RedPenMin = json.get("RedPenMin");
+        this.BlueAutoBeacons = json.get("BlueAutoBeacons");
+        this.BlueAutoCap = json.get("BlueAutoCap");
+        this.BlueAutoPartCen = json.get("BlueAutoPartCen");
+        this.BlueAutoPartCor = json.get("BlueAutoPartCor");
+        this.BlueAutoRobot1 = json.get("BlueAutoRobot1");
+        this.BlueAutoRobot2 = json.get("BlueAutoRobot2");
+        this.BlueDriverBeacons = json.get("BlueDriverBeacons");
+        this.BlueDriverPartCen = json.get("BlueDriverPartCen");
+        this.BlueDriverPartCor = json.get("BlueDriverPartCor");
+        this.BlueDriverCap = json.get("BlueDriverCap");
+        this.BluePenMaj = json.get("BluePenMaj");
+        this.BluePenMin = json.get("BluePenMin");
     }
 
-    public String getMatchDtlKey() {
+    public Object getMatchDtlKey() {
         return MatchDtlKey;
     }
 
-    public void setMatchDtlKey(String matchDtlKey) {
+    public void setMatchDtlKey(Object matchDtlKey) {
         MatchDtlKey = matchDtlKey;
     }
 
-    public String getMatchID() {
+    public Object getMatchID() {
         return MatchID;
     }
 
-    public void setMatchID(String matchID) {
+    public void setMatchID(Object matchID) {
         MatchID = matchID;
     }
 
-    public String getRedAutoBeacons() {
+    public Object getRedAutoBeacons() {
         return RedAutoBeacons;
     }
 
-    public void setRedAutoBeacons(String redAutoBeacons) {
+    public void setRedAutoBeacons(Object redAutoBeacons) {
         RedAutoBeacons = redAutoBeacons;
     }
 
-    public String getRedAutoCap() {
+    public Object getRedAutoCap() {
         return RedAutoCap;
     }
 
-    public void setRedAutoCap(String redAutoCap) {
+    public void setRedAutoCap(Object redAutoCap) {
         RedAutoCap = redAutoCap;
     }
 
-    public String getRedAutoPartCen() {
+    public Object getRedAutoPartCen() {
         return RedAutoPartCen;
     }
 
-    public void setRedAutoPartCen(String redAutoPartCen) {
+    public void setRedAutoPartCen(Object redAutoPartCen) {
         RedAutoPartCen = redAutoPartCen;
     }
 
-    public String getRedAutoPartCor() {
+    public Object getRedAutoPartCor() {
         return RedAutoPartCor;
     }
 
-    public void setRedAutoPartCor(String redAutoPartCor) {
+    public void setRedAutoPartCor(Object redAutoPartCor) {
         RedAutoPartCor = redAutoPartCor;
     }
 
-    public String getRedAutoRobot1() {
+    public Object getRedAutoRobot1() {
         return RedAutoRobot1;
     }
 
-    public void setRedAutoRobot1(String redAutoRobot1) {
+    public void setRedAutoRobot1(Object redAutoRobot1) {
         RedAutoRobot1 = redAutoRobot1;
     }
 
-    public String getRedAutoRobot2() {
+    public Object getRedAutoRobot2() {
         return RedAutoRobot2;
     }
 
-    public void setRedAutoRobot2(String redAutoRobot2) {
+    public void setRedAutoRobot2(Object redAutoRobot2) {
         RedAutoRobot2 = redAutoRobot2;
     }
 
-    public String getRedDriverBeacons() {
+    public Object getRedDriverBeacons() {
         return RedDriverBeacons;
     }
 
-    public void setRedDriverBeacons(String redDriverBeacons) {
+    public void setRedDriverBeacons(Object redDriverBeacons) {
         RedDriverBeacons = redDriverBeacons;
     }
 
-    public String getRedDriverPartCen() {
+    public Object getRedDriverPartCen() {
         return RedDriverPartCen;
     }
 
-    public void setRedDriverPartCen(String redDriverPartCen) {
+    public void setRedDriverPartCen(Object redDriverPartCen) {
         RedDriverPartCen = redDriverPartCen;
     }
 
-    public String getRedDriverPartCor() {
+    public Object getRedDriverPartCor() {
         return RedDriverPartCor;
     }
 
-    public void setRedDriverPartCor(String redDriverPartCor) {
+    public void setRedDriverPartCor(Object redDriverPartCor) {
         RedDriverPartCor = redDriverPartCor;
     }
 
-    public String getRedDriverCap() {
+    public Object getRedDriverCap() {
         return RedDriverCap;
     }
 
-    public void setRedDriverCap(String redDriverCap) {
+    public void setRedDriverCap(Object redDriverCap) {
         RedDriverCap = redDriverCap;
     }
 
-    public String getRedPenMaj() {
+    public Object getRedPenMaj() {
         return RedPenMaj;
     }
 
-    public void setRedPenMaj(String redPenMaj) {
+    public void setRedPenMaj(Object redPenMaj) {
         RedPenMaj = redPenMaj;
     }
 
-    public String getRedPenMin() {
+    public Object getRedPenMin() {
         return RedPenMin;
     }
 
-    public void setRedPenMin(String redPenMin) {
+    public void setRedPenMin(Object redPenMin) {
         RedPenMin = redPenMin;
     }
 
-    public String getBlueAutoBeacons() {
+    public Object getBlueAutoBeacons() {
         return BlueAutoBeacons;
     }
 
-    public void setBlueAutoBeacons(String blueAutoBeacons) {
+    public void setBlueAutoBeacons(Object blueAutoBeacons) {
         BlueAutoBeacons = blueAutoBeacons;
     }
 
-    public String getBlueAutoCap() {
+    public Object getBlueAutoCap() {
         return BlueAutoCap;
     }
 
-    public void setBlueAutoCap(String blueAutoCap) {
+    public void setBlueAutoCap(Object blueAutoCap) {
         BlueAutoCap = blueAutoCap;
     }
 
-    public String getBlueAutoPartCen() {
+    public Object getBlueAutoPartCen() {
         return BlueAutoPartCen;
     }
 
-    public void setBlueAutoPartCen(String blueAutoPartCen) {
+    public void setBlueAutoPartCen(Object blueAutoPartCen) {
         BlueAutoPartCen = blueAutoPartCen;
     }
 
-    public String getBlueAutoPartCor() {
+    public Object getBlueAutoPartCor() {
         return BlueAutoPartCor;
     }
 
-    public void setBlueAutoPartCor(String blueAutoPartCor) {
+    public void setBlueAutoPartCor(Object blueAutoPartCor) {
         BlueAutoPartCor = blueAutoPartCor;
     }
 
-    public String getBlueAutoRobot1() {
+    public Object getBlueAutoRobot1() {
         return BlueAutoRobot1;
     }
 
-    public void setBlueAutoRobot1(String blueAutoRobot1) {
+    public void setBlueAutoRobot1(Object blueAutoRobot1) {
         BlueAutoRobot1 = blueAutoRobot1;
     }
 
-    public String getBlueAutoRobot2() {
+    public Object getBlueAutoRobot2() {
         return BlueAutoRobot2;
     }
 
-    public void setBlueAutoRobot2(String blueAutoRobot2) {
+    public void setBlueAutoRobot2(Object blueAutoRobot2) {
         BlueAutoRobot2 = blueAutoRobot2;
     }
 
-    public String getBlueDriverBeacons() {
+    public Object getBlueDriverBeacons() {
         return BlueDriverBeacons;
     }
 
-    public void setBlueDriverBeacons(String blueDriverBeacons) {
+    public void setBlueDriverBeacons(Object blueDriverBeacons) {
         BlueDriverBeacons = blueDriverBeacons;
     }
 
-    public String getBlueDriverPartCen() {
+    public Object getBlueDriverPartCen() {
         return BlueDriverPartCen;
     }
 
-    public void setBlueDriverPartCen(String blueDriverPartCen) {
+    public void setBlueDriverPartCen(Object blueDriverPartCen) {
         BlueDriverPartCen = blueDriverPartCen;
     }
 
-    public String getBlueDriverPartCor() {
+    public Object getBlueDriverPartCor() {
         return BlueDriverPartCor;
     }
 
-    public void setBlueDriverPartCor(String blueDriverPartCor) {
+    public void setBlueDriverPartCor(Object blueDriverPartCor) {
         BlueDriverPartCor = blueDriverPartCor;
     }
 
-    public String getBlueDriverCap() {
+    public Object getBlueDriverCap() {
         return BlueDriverCap;
     }
 
-    public void setBlueDriverCap(String blueDriverCap) {
+    public void setBlueDriverCap(Object blueDriverCap) {
         BlueDriverCap = blueDriverCap;
     }
 
-    public String getBluePenMaj() {
+    public Object getBluePenMaj() {
         return BluePenMaj;
     }
 
-    public void setBluePenMaj(String bluePenMaj) {
+    public void setBluePenMaj(Object bluePenMaj) {
         BluePenMaj = bluePenMaj;
     }
 
-    public String getBluePenMin() {
+    public Object getBluePenMin() {
         return BluePenMin;
     }
 
-    public void setBluePenMin(String bluePenMin) {
+    public void setBluePenMin(Object bluePenMin) {
         BluePenMin = bluePenMin;
     }
 }

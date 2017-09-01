@@ -1,20 +1,16 @@
 package main.classes;
 
-import org.json.simple.JSONObject;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  * Created by SPZ Productions on 8/13/2017.
  */
 public class Award {
-    private String AwardsID;
-    private String EventID ;
-    private String AwardID;
-    private String TeamId;
-    private String RecieverNam;
-    private String AwardNamAdd;
+    private Object AwardsID;
+    private Object EventID ;
+    private Object AwardID;
+    private Object TeamId;
+    private Object RecieverNam;
+    private Object AwardNamAdd;
 
     public Award(){
         this.AwardsID = "";
@@ -25,7 +21,7 @@ public class Award {
         this.AwardNamAdd = "";
     }
 
-    public Award(String AwardsID, String EventID , String AwardID, String TeamId, String RecieverNam, String AwardNamAdd){
+    public Award(Object AwardsID, Object EventID , Object AwardID, Object TeamId, Object RecieverNam, Object AwardNamAdd){
         this.AwardsID = AwardsID;
         this.EventID  = EventID;
         this.AwardID = AwardID;
@@ -34,68 +30,59 @@ public class Award {
         this.AwardNamAdd = AwardNamAdd;
     }
 
-    public Award(ResultSet rs) throws SQLException {
-        this.AwardsID = rs.getString("AwardsID");
-        this.EventID  = rs.getString("EventID");
-        this.AwardID = rs.getString("AwardID");
-        this.TeamId = rs.getString("TeamId");
-        this.RecieverNam = rs.getString("RecieverNam");
-        this.AwardNamAdd = rs.getString("AwardNamAdd");
-    }
-
     public Award(JSONObject json) {
-        this.AwardsID = json.get("award_key").toString();
-        this.AwardID = json.get("award_name").toString();
-        this.TeamId = json.get("team_key").toString();
-        this.RecieverNam = json.get("reciever_name").toString();
-        this.AwardNamAdd = json.get("award_desc").toString();
+        this.AwardsID = json.get("award_key");
+        this.AwardID = json.get("award_name");
+        this.TeamId = json.get("team_key");
+        this.RecieverNam = json.get("reciever_name");
+        this.AwardNamAdd = json.get("award_desc");
     }
 
-    public String getAwardsID() {
+    public Object getAwardsID() {
         return AwardsID;
     }
 
-    public void setAwardsID(String awardsID) {
+    public void setAwardsID(Object awardsID) {
         AwardsID = awardsID;
     }
 
-    public String getEventID() {
+    public Object getEventID() {
         return EventID;
     }
 
-    public void setEventID(String eventID) {
+    public void setEventID(Object eventID) {
         EventID = eventID;
     }
 
-    public String getAwardID() {
+    public Object getAwardID() {
         return AwardID;
     }
 
-    public void setAwardID(String awardID) {
+    public void setAwardID(Object awardID) {
         AwardID = awardID;
     }
 
-    public String getTeamId() {
+    public Object getTeamId() {
         return TeamId;
     }
 
-    public void setTeamId(String teamId) {
+    public void setTeamId(Object teamId) {
         TeamId = teamId;
     }
 
-    public String getRecieverNam() {
+    public Object getRecieverNam() {
         return RecieverNam;
     }
 
-    public void setRecieverNam(String recieverNam) {
+    public void setRecieverNam(Object recieverNam) {
         RecieverNam = recieverNam;
     }
 
-    public String getAwardNamAdd() {
+    public Object getAwardNamAdd() {
         return AwardNamAdd;
     }
 
-    public void setAwardNamAdd(String awardNamAdd) {
+    public void setAwardNamAdd(Object awardNamAdd) {
         AwardNamAdd = awardNamAdd;
     }
 }

@@ -1,27 +1,22 @@
 package main.classes;
 
-import org.json.simple.JSONObject;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
  * Created by SPZ Productions on 8/13/2017.
  */
 public class TeamRanking {
-    private String TeamRankId;
-    private String EventID;
-    private String TeamID;
-    private String Rank;
-    private String RankChange;
-    private String Wins;
-    private String Losses;
-    private String Ties;
-    private String QualifyingPoints;
-    private String RankingPoints;
-    private String HighestQualScore;
-    private String MatchesPlayed;
-    private String Disqualified;
+    private Object TeamRankId;
+    private Object EventID;
+    private Object TeamID;
+    private Object Rank;
+    private Object RankChange;
+    private Object Wins;
+    private Object Losses;
+    private Object Ties;
+    private Object QualifyingPoints;
+    private Object RankingPoints;
+    private Object HighestQualScore;
+    private Object MatchesPlayed;
+    private Object Disqualified;
 
     public TeamRanking() {
         this.TeamRankId = "";
@@ -39,7 +34,7 @@ public class TeamRanking {
         this.Disqualified = "";
     }
 
-    public TeamRanking(String TeamRankId, String EventID, String TeamID, String Rank, String RankChange, String Wins, String Losses, String Ties, String QualifyingPoints, String RankingPoints, String HighestQualScore, String MatchesPlayed, String Disqualified){
+    public TeamRanking(Object TeamRankId, Object EventID, Object TeamID, Object Rank, Object RankChange, Object Wins, Object Losses, Object Ties, Object QualifyingPoints, Object RankingPoints, Object HighestQualScore, Object MatchesPlayed, Object Disqualified){
         this.TeamRankId = TeamRankId;
         this.EventID = EventID;
         this.TeamID = TeamID;
@@ -55,139 +50,123 @@ public class TeamRanking {
         this.Disqualified = Disqualified;
     }
 
-    public TeamRanking(ResultSet rs) throws SQLException {
-        this.TeamRankId = rs.getString("TeamRankID");
-        this.EventID = rs.getString("EventID");
-        this.TeamID = rs.getString("TeamID");
-        this.Rank = rs.getString("Rank");
-        this.RankChange = rs.getString("RankChange");
-        this.Wins = rs.getString("Wins");
-        this.Losses = rs.getString("Losses");
-        this.Ties = rs.getString("Ties");
-        this.QualifyingPoints = rs.getString("QualifyingPoints");
-        this.RankingPoints = rs.getString("RankingPoints");
-        this.HighestQualScore = rs.getString("HighestQualScore");
-        this.MatchesPlayed = rs.getString("MatchesPlayed");
-        this.Disqualified = rs.getString("Disqualified");
-    }
-
     public TeamRanking(JSONObject json) {
-        this.TeamRankId = json.get("TeamRankID").toString();
-        this.EventID = json.get("EventID").toString();
-        this.TeamID = json.get("TeamID").toString();
-        this.Rank = json.get("Rank").toString();
-        this.RankChange = json.get("RankChange").toString();
-        this.Wins = json.get("Wins").toString();
-        this.Losses = json.get("Losses").toString();
-        this.Ties = json.get("Ties").toString();
-        this.QualifyingPoints = json.get("QualifyingPoints").toString();
-        this.RankingPoints = json.get("RankingPoints").toString();
-        this.HighestQualScore = json.get("HighestQualScore").toString();
-        this.MatchesPlayed = json.get("MatchesPlayed").toString();
-        this.Disqualified = json.get("Disqualified").toString();
+        this.TeamRankId = json.get("TeamRankID");
+        this.EventID = json.get("EventID");
+        this.TeamID = json.get("TeamID");
+        this.Rank = json.get("Rank");
+        this.RankChange = json.get("RankChange");
+        this.Wins = json.get("Wins");
+        this.Losses = json.get("Losses");
+        this.Ties = json.get("Ties");
+        this.QualifyingPoints = json.get("QualifyingPoints");
+        this.RankingPoints = json.get("RankingPoints");
+        this.HighestQualScore = json.get("HighestQualScore");
+        this.MatchesPlayed = json.get("MatchesPlayed");
+        this.Disqualified = json.get("Disqualified");
     }
 
-    public String getTeamRankId() {
+    public Object getTeamRankId() {
         return TeamRankId;
     }
 
-    public void setTeamRankId(String teamRankId) {
+    public void setTeamRankId(Object teamRankId) {
         TeamRankId = teamRankId;
     }
 
-    public String getEventID() {
+    public Object getEventID() {
         return EventID;
     }
 
-    public void setEventID(String eventID) {
+    public void setEventID(Object eventID) {
         EventID = eventID;
     }
 
-    public String getTeamID() {
+    public Object getTeamID() {
         return TeamID;
     }
 
-    public void setTeamID(String teamID) {
+    public void setTeamID(Object teamID) {
         TeamID = teamID;
     }
 
-    public String getRank() {
+    public Object getRank() {
         return Rank;
     }
 
-    public void setRank(String rank) {
+    public void setRank(Object rank) {
         Rank = rank;
     }
 
-    public String getRankChange() {
+    public Object getRankChange() {
         return RankChange;
     }
 
-    public void setRankChange(String rankChange) {
+    public void setRankChange(Object rankChange) {
         RankChange = rankChange;
     }
 
-    public String getWins() {
+    public Object getWins() {
         return Wins;
     }
 
-    public void setWins(String wins) {
+    public void setWins(Object wins) {
         Wins = wins;
     }
 
-    public String getLosses() {
+    public Object getLosses() {
         return Losses;
     }
 
-    public void setLosses(String losses) {
+    public void setLosses(Object losses) {
         Losses = losses;
     }
 
-    public String getTies() {
+    public Object getTies() {
         return Ties;
     }
 
-    public void setTies(String ties) {
+    public void setTies(Object ties) {
         Ties = ties;
     }
 
-    public String getQualifyingPoints() {
+    public Object getQualifyingPoints() {
         return QualifyingPoints;
     }
 
-    public void setQualifyingPoints(String qualifyingPoints) {
+    public void setQualifyingPoints(Object qualifyingPoints) {
         QualifyingPoints = qualifyingPoints;
     }
 
-    public String getRankingPoints() {
+    public Object getRankingPoints() {
         return RankingPoints;
     }
 
-    public void setRankingPoints(String rankingPoints) {
+    public void setRankingPoints(Object rankingPoints) {
         RankingPoints = rankingPoints;
     }
 
-    public String getHighestQualScore() {
+    public Object getHighestQualScore() {
         return HighestQualScore;
     }
 
-    public void setHighestQualScore(String highestQualScore) {
+    public void setHighestQualScore(Object highestQualScore) {
         HighestQualScore = highestQualScore;
     }
 
-    public String getMatchesPlayed() {
+    public Object getMatchesPlayed() {
         return MatchesPlayed;
     }
 
-    public void setMatchesPlayed(String matchesPlayed) {
+    public void setMatchesPlayed(Object matchesPlayed) {
         MatchesPlayed = matchesPlayed;
     }
 
-    public String getDisqualified() {
+    public Object getDisqualified() {
         return Disqualified;
     }
 
-    public void setDisqualified(String disqualified) {
+    public void setDisqualified(Object disqualified) {
         Disqualified = disqualified;
     }
 }

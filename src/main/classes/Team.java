@@ -1,27 +1,22 @@
 package main.classes;
 
-import org.json.simple.JSONObject;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
  * Created by SPZ Productions on 8/11/2017.
  */
 public class Team {
 
-    private String TeamID;
-    private String RegionID;
-    private String LeagueID;
-    private String TeamNumber;
-    private String TeamNameShort;
-    private String TeamNameLong;
-    private String RobotName;
-    private String City;
-    private String StateProv;
-    private String Country;
-    private String RookieYear;
-    private String Website;
+    private Object TeamID;
+    private Object RegionID;
+    private Object LeagueID;
+    private Object TeamNumber;
+    private Object TeamNameShort;
+    private Object TeamNameLong;
+    private Object RobotName;
+    private Object City;
+    private Object StateProv;
+    private Object Country;
+    private Object RookieYear;
+    private Object Website;
 
     public Team(){
         this.TeamID = "";
@@ -38,7 +33,7 @@ public class Team {
         this.Website = "";
     }
 
-    public Team(String TeamID, String RegionID, String LeagueID, String TeamNumber, String TeamNameShort, String TeamNameLong, String RobotName, String City, String StateProv, String Country, String RookieYear, String Website){
+    public Team(Object TeamID, Object RegionID, Object LeagueID, Object TeamNumber, Object TeamNameShort, Object TeamNameLong, Object RobotName, Object City, Object StateProv, Object Country, Object RookieYear, Object Website){
         this.TeamID = TeamID;
         this.RegionID = RegionID;
         this.LeagueID = LeagueID;
@@ -53,129 +48,114 @@ public class Team {
         this.Website = Website;
     }
 
-    public Team(ResultSet rs) throws SQLException {
-        this.TeamID = rs.getString("TeamID");
-        this.RegionID = rs.getString("RegionID");
-        this.LeagueID = rs.getString("LeagueID");
-        this.TeamNumber = rs.getString("TeamNumber");
-        this.TeamNameShort = rs.getString("TeamNameShort");
-        this.TeamNameLong = rs.getString("TeamNameLong");
-        this.RobotName = rs.getString("RobotName");
-        this.City = rs.getString("City");
-        this.StateProv = rs.getString("StateProv");
-        this.Country = rs.getString("Country");
-        this.RookieYear = rs.getString("RookieYear");
-        this.Website = rs.getString("Website");
-    }
-
     public Team(JSONObject json){
-        this.TeamID = json.get("TeamID").toString();
-        this.RegionID = json.get("RegionID").toString();
-        this.LeagueID = json.get("LeagueID").toString();
-        this.TeamNumber = json.get("TeamNumber").toString();
-        this.TeamNameShort = json.get("TeamNameShort").toString();
-        this.TeamNameLong = json.get("TeamNameLong").toString();
-        this.RobotName = json.get("RobotName").toString();
-        this.City = json.get("City").toString();
-        this.StateProv = json.get("StateProv").toString();
-        this.Country = json.get("Country").toString();
-        this.RookieYear = json.get("RookieYear").toString();
-        this.Website = json.get("Website").toString();
+        this.TeamID = json.get("team_key");
+        this.RegionID = json.get("region_key");
+        this.LeagueID = json.get("league_key");
+        this.TeamNumber = json.get("team_number");
+        this.TeamNameShort = json.get("team_name_short");
+        this.TeamNameLong = json.get("team_name_long");
+        this.RobotName = json.get("robot_name");
+        this.City = json.get("city");
+        this.StateProv = json.get("state_prov");
+        this.Country = json.get("country");
+        this.RookieYear = json.get("rookie_year");
+        this.Website = json.get("website");
     }
 
-    public String getTeamID() {
+    public Object getTeamID() {
         return TeamID;
     }
 
-    public void setTeamID(String teamID) {
+    public void setTeamID(Object teamID) {
         TeamID = teamID;
     }
 
-    public String getLeagueID() {
+    public Object getLeagueID() {
         return LeagueID;
     }
 
-    public void setLeagueID(String leagueID) {
+    public void setLeagueID(Object leagueID) {
         LeagueID = leagueID;
     }
 
-    public String getTeamNumber() {
+    public Object getTeamNumber() {
         return TeamNumber;
     }
 
-    public void setTeamNumber(String teamNumber) {
+    public void setTeamNumber(Object teamNumber) {
         TeamNumber = teamNumber;
     }
 
-    public String getTeamNameShort() {
+    public Object getTeamNameShort() {
         return TeamNameShort;
     }
 
-    public void setTeamNameShort(String teamNameShort) {
+    public void setTeamNameShort(Object teamNameShort) {
         TeamNameShort = teamNameShort;
     }
 
-    public String getTeamNameLong() {
+    public Object getTeamNameLong() {
         return TeamNameLong;
     }
 
-    public void setTeamNameLong(String teamNameLong) {
+    public void setTeamNameLong(Object teamNameLong) {
         TeamNameLong = teamNameLong;
     }
 
-    public String getRobotName() {
+    public Object getRobotName() {
         return RobotName;
     }
 
-    public void setRobotName(String robotName) {
+    public void setRobotName(Object robotName) {
         RobotName = robotName;
     }
 
-    public String getCity() {
+    public Object getCity() {
         return City;
     }
 
-    public void setCity(String city) {
+    public void setCity(Object city) {
         City = city;
     }
 
-    public String getStateProv() {
+    public Object getStateProv() {
         return StateProv;
     }
 
-    public void setStateProv(String stateProv) {
+    public void setStateProv(Object stateProv) {
         StateProv = stateProv;
     }
 
-    public String getCountry() {
+    public Object getCountry() {
         return Country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Object country) {
         Country = country;
     }
 
-    public String getRookieYear() {
+    public Object getRookieYear() {
         return RookieYear;
     }
 
-    public void setRookieYear(String rookieYear) {
+    public void setRookieYear(Object rookieYear) {
         RookieYear = rookieYear;
     }
 
-    public String getWebsite() {
+    public Object getWebsite() {
         return Website;
     }
 
-    public void setWebsite(String website) {
+    public void setWebsite(Object website) {
         Website = website;
     }
 
-    public void setRegionID(String regionID) {
+    public void setRegionID(Object regionID) {
         RegionID = regionID;
     }
 
-    public String getRegionID() {
+    public Object getRegionID() {
         return RegionID;
     }
 }
