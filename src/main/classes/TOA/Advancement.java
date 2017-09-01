@@ -1,4 +1,4 @@
-package main.classes;
+package main.classes.TOA;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

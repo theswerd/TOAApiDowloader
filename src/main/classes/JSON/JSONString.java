@@ -1,4 +1,4 @@
-package main.classes;
+package main.classes.JSON;
 
 /**
  * The <code>JSONString</code> interface allows a <code>toJSONString()</code>

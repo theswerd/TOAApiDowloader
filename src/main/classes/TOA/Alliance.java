@@ -1,4 +1,6 @@
-package main.classes;
+package main.classes.TOA;
+
+import main.classes.JSON.JSONObject;
 
 /**
  * Created by SPZ Productions on 8/13/2017.

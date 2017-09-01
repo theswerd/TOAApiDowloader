@@ -1,4 +1,4 @@
-package main.classes;
+package main.classes.JSON;
 
 /**
  * The JSONException is thrown by the JSON.org classes when things are amiss.

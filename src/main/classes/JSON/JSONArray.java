@@ -1,4 +1,4 @@
-package main.classes;
+package main.classes.JSON;
 
 /*
  Copyright (c) 2002 JSON.org

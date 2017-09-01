@@ -1,9 +1,12 @@
-package main.classes;
+package main.classes.TOA;
+
+
+import main.classes.JSON.JSONObject;
 
 /**
  * Created by SPZ Productions on 8/11/2017.
  */
-public class Team {
+public class EventTeam {
 
     private Object TeamID;
     private Object RegionID;
@@ -17,8 +20,10 @@ public class Team {
     private Object Country;
     private Object RookieYear;
     private Object Website;
+    private Object HasCard;
+    private Object EventID;
 
-    public Team(){
+    public EventTeam(){
         this.TeamID = "";
         this.RegionID = "";
         this.LeagueID = "";
@@ -31,9 +36,11 @@ public class Team {
         this.Country = "";
         this.RookieYear = "";
         this.Website = "";
+        this.HasCard = "";
+        this.EventID = "";
     }
 
-    public Team(Object TeamID, Object RegionID, Object LeagueID, Object TeamNumber, Object TeamNameShort, Object TeamNameLong, Object RobotName, Object City, Object StateProv, Object Country, Object RookieYear, Object Website){
+    public EventTeam(Object TeamID, Object RegionID, Object LeagueID, Object TeamNumber, Object TeamNameShort, Object TeamNameLong, Object RobotName, Object City, Object StateProv, Object Country, Object RookieYear, Object Website, Object HasCard, Object EventID){
         this.TeamID = TeamID;
         this.RegionID = RegionID;
         this.LeagueID = LeagueID;
@@ -46,9 +53,11 @@ public class Team {
         this.Country = Country;
         this.RookieYear = RookieYear;
         this.Website = Website;
+        this.HasCard = HasCard;
+        this.EventID = EventID;
     }
 
-    public Team(JSONObject json){
+    public EventTeam(JSONObject json){
         this.TeamID = json.get("team_key");
         this.RegionID = json.get("region_key");
         this.LeagueID = json.get("league_key");
@@ -61,6 +70,24 @@ public class Team {
         this.Country = json.get("country");
         this.RookieYear = json.get("rookie_year");
         this.Website = json.get("website");
+        this.HasCard = json.get("has_card");
+        this.EventID = json.get("event_key");
+    }
+
+    public Object getEventID() {
+        return EventID;
+    }
+
+    public void setEventID(Object eventID) {
+        EventID = eventID;
+    }
+
+    public Object getHasCard() {
+        return HasCard;
+    }
+
+    public void setHasCard(Object hasCard) {
+        HasCard = hasCard;
     }
 
     public Object getTeamID() {

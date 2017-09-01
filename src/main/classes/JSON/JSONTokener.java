@@ -1,4 +1,4 @@
-package main.classes;
+package main.classes.JSON;
 
 import java.io.BufferedReader;
 import java.io.IOException;

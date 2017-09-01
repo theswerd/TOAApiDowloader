@@ -16,7 +16,11 @@ import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import main.classes.*;
+import main.classes.JSON.CDL;
+import main.classes.JSON.JSONArray;
+import main.classes.JSON.JSONObject;
+import main.classes.TOA.*;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
