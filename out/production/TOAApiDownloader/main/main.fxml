@@ -44,7 +44,7 @@
             <CheckBox fx:id="cb_matchdetails" layoutX="158.0" layoutY="365.0" mnemonicParsing="false" text="Match Details" />
             <CheckBox fx:id="cb_schedulestation" layoutX="158.0" layoutY="390.0" mnemonicParsing="false" text="Schedule Station" />
             <CheckBox fx:id="cb_teamrankings" layoutX="158.0" layoutY="414.0" mnemonicParsing="false" text="Team Rankings" />
-            <Button fx:id="btn_download" defaultButton="true" disable="true" layoutX="3.0" layoutY="475.0" mnemonicParsing="false" onAction="#download" prefHeight="25.0" prefWidth="282.0" text="Download" />
+            <Button fx:id="btn_download" defaultButton="true" layoutX="3.0" layoutY="475.0" mnemonicParsing="false" onAction="#download" prefHeight="25.0" prefWidth="282.0" text="Download" />
             <Label layoutX="96.0" layoutY="431.0" text="Download Format" />
             <CheckBox fx:id="cb_seperatejson" layoutX="2.0" layoutY="450.0" mnemonicParsing="false" text="Seperate JSONs" />
             <CheckBox fx:id="cb_combinedjson" layoutX="117.0" layoutY="450.0" mnemonicParsing="false" text="Combined JSON" />

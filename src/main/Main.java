@@ -24,7 +24,7 @@ public class Main extends Application {
             primaryStage.show();
 
             Main.currentStage = primaryStage;
-            Main.controller = (Controller) loader.getController();
+            Main.controller = loader.getController();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -34,7 +34,7 @@ public class Main extends Application {
         return currentStage;
     }
 
-    public static Controller getController() {
+    static Controller getController() {
         return controller;
     }
 

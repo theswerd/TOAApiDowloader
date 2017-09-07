@@ -20,7 +20,6 @@ import main.classes.JSON.CDL;
 import main.classes.JSON.JSONArray;
 import main.classes.JSON.JSONObject;
 import main.classes.TOA.*;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -54,21 +53,21 @@ public class Controller implements Initializable {
     @FXML public CheckBox cb_csv = new CheckBox();
     @FXML public Button btn_download = new Button();
 
-    public String apiKey = null;
-    public String webURL = null;
-    public String appPurpose = "TOA Data Downloader";
+    private String apiKey = null;
+    private String webURL = null;
+    private String appPurpose = "TOA Data Downloader";
     private statusPopupController stPop;
 
-    private List<Advancement>       adv = new ArrayList<Advancement>();
-    private List<Alliance>          all = new ArrayList<Alliance>();
-    private List<Award>             awa = new ArrayList<Award>();
-    private List<Event>             eve = new ArrayList<Event>();
-    private List<EventTeam>         etm = new ArrayList<EventTeam>();
-    private List<Match>             mat = new ArrayList<Match>();
-    private List<MatchDetails>      mad = new ArrayList<MatchDetails>();
-    private List<ScheduleStation>   sch = new ArrayList<ScheduleStation>();
-    private List<Team>              tem = new ArrayList<Team>();
-    private List<TeamRanking>       ter = new ArrayList<TeamRanking>();
+    private List<Advancement>       adv = new ArrayList<>();
+    private List<Alliance>          all = new ArrayList<>();
+    private List<Award>             awa = new ArrayList<>();
+    private List<Event>             eve = new ArrayList<>();
+    private List<EventTeam>         etm = new ArrayList<>();
+    private List<Match>             mat = new ArrayList<>();
+    private List<MatchDetails>      mad = new ArrayList<>();
+    private List<ScheduleStation>   sch = new ArrayList<>();
+    private List<Team>              tem = new ArrayList<>();
+    private List<TeamRanking>       ter = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,7 +75,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void authenticate(ActionEvent event) {
+    public void authenticate() {
         try {
             if(checkAuth(new URL(tb_apiurl.getText()), tb_apikey.getText())){
                 pne_auth.setStyle("-fx-background-color: green");
@@ -92,7 +91,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public boolean checkAuth(URL url, String APIkey) throws Exception {
+    private boolean checkAuth(URL url, String APIkey) throws Exception {
 
         boolean responseCode200 = false;
 
@@ -109,7 +108,7 @@ public class Controller implements Initializable {
         return responseCode200;
     }
 
-    public BufferedReader sendGETRequest(URL url) throws Exception {
+    private BufferedReader sendGETRequest(URL url) throws Exception {
 
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
@@ -121,23 +120,22 @@ public class Controller implements Initializable {
         con.setRequestProperty("X-Application-Origin", appPurpose);
 
         // Reading response from input Stream
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        return in;
+        return new BufferedReader(new InputStreamReader(con.getInputStream()));
 
     }
 
     @FXML
-    public void download(ActionEvent event) {
+    public void download() {
         if(cb_advancements.isSelected()){
-
+            adv.add(null);
+            System.out.println(adv);
         }
         if(cb_awards.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/awards"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/awards"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -155,12 +153,11 @@ public class Controller implements Initializable {
             }
         }
         if(cb_alliance.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/alliances"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/alliances"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -177,12 +174,11 @@ public class Controller implements Initializable {
             }
         }
         if(cb_eventparticipants.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/teams"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/teams"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -200,12 +196,11 @@ public class Controller implements Initializable {
             }
         }
         if(cb_matches.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/matches"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/matches"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -224,12 +219,11 @@ public class Controller implements Initializable {
             }
         }
         if(cb_matchdetails.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/matches/details"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/matches/details"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -246,12 +240,11 @@ public class Controller implements Initializable {
             }
         }
         if(cb_schedulestation.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/matches/stations"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/matches/stations"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -268,12 +261,11 @@ public class Controller implements Initializable {
             }
         }
         if(cb_teamrankings.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/rankings"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/event/2017/" + tb_eventkey.getText() + "/rankings"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -290,12 +282,11 @@ public class Controller implements Initializable {
             }
         }
         if(cb_allevents.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/events/"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/events/"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -312,12 +303,11 @@ public class Controller implements Initializable {
             }
         }
         if(cb_allteams.isSelected()){
-            BufferedReader in = null;
             try {
-                in = sendGETRequest(new URL(webURL + "/teams/"));
+                BufferedReader in = sendGETRequest(new URL(webURL + "/teams/"));
 
                 String output;
-                StringBuffer response = new StringBuffer();
+                StringBuilder response = new StringBuilder();
 
                 while ((output = in.readLine()) != null) {
                     response.append(output);
@@ -336,11 +326,11 @@ public class Controller implements Initializable {
         confirm();
     }
 
-    public void confirm(){
+    private void confirm(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("statusPopup.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            stPop = (statusPopupController) fxmlLoader.getController();
+            Parent root1 = fxmlLoader.load();
+            stPop = fxmlLoader.getController();
             stPop.populateWindow();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -348,14 +338,12 @@ public class Controller implements Initializable {
             stage.getIcons().add(new Image(getClass().getResourceAsStream("images/app_ico.png")));
             stage.setScene(new Scene(root1));
             stage.show();
-
-            //((Node)(event.getSource())).getScene().getWindow().hide();
         }catch (IOException e){
             Logger logger = Logger.getLogger(getClass().getName());
             logger.log(Level.SEVERE, "Failed to create new Window.", e);
         }
-        String confirmMessage = "";
-        List<String> confirm = new ArrayList<String>();
+        StringBuilder confirmMessage = new StringBuilder();
+        List<String> confirm = new ArrayList<>();
         confirm.add("Downloading:");
         if(cb_allevents.isSelected()){confirm.add("All Events");}
         if(cb_allteams.isSelected()){confirm.add("All Teams");}
@@ -372,99 +360,100 @@ public class Controller implements Initializable {
         if(cb_combinedjson.isSelected()){confirm.add("Combined JSON for ALL");}
         if(cb_csv.isSelected()){confirm.add("Separate CSV(s)");}
         for(String con : confirm){
-            confirmMessage = confirmMessage + con + "\n";
+            confirmMessage.append(con);
+            confirmMessage.append("\n");
         }
-        stPop.stat_popup_textField.setText(confirmMessage);
+        stPop.stat_popup_textField.setText(confirmMessage.toString());
     }
 
-    public void save(){
+    void save(){
         if(cb_seperatejson.isSelected()){
             if(cb_advancements.isSelected()){
-
+                System.out.println("Advancements Called but not Ready Yet");
             }
             if(cb_awards.isSelected()){
                 JSONObject obj = new JSONObject();
                 obj.put("Awards", parseAwardToJSON(awa));
-                writeStringToFile(obj.toString(), "Awards", "json");
+                writeStringToFile(obj.toString(), "awards", "json");
             }
             if(cb_alliance.isSelected()){
                 JSONObject obj = new JSONObject();
-                obj.put("Alliances", parseAllianceToJSON(all));
-                writeStringToFile(obj.toString(), "Alliances", "json");
+                obj.put("alliances", parseAllianceToJSON(all));
+                writeStringToFile(obj.toString(), "alliances", "json");
             }
             if(cb_eventparticipants.isSelected()){
                 JSONObject obj = new JSONObject();
-                obj.put("Event Teams", parseEventTeamsToJSON(etm));
-                writeStringToFile(obj.toString(), "Event-Teams", "json");
+                obj.put("event _teams", parseEventTeamsToJSON(etm));
+                writeStringToFile(obj.toString(), "event_teams", "json");
             }
             if(cb_matches.isSelected()){
                 JSONObject obj = new JSONObject();
-                obj.put("Matches", parseMatchesToJSON(mat));
-                writeStringToFile(obj.toString(), "Matches", "json");
+                obj.put("matches", parseMatchesToJSON(mat));
+                writeStringToFile(obj.toString(), "matches", "json");
             }
             if(cb_matchdetails.isSelected()){
                 JSONObject obj = new JSONObject();
-                obj.put("Match Details", parseMatchDetailsToJSON(mad));
-                writeStringToFile(obj.toString(), "Match-Details", "json");
+                obj.put("match_details", parseMatchDetailsToJSON(mad));
+                writeStringToFile(obj.toString(), "match_details", "json");
             }
             if(cb_schedulestation.isSelected()){
                 JSONObject obj = new JSONObject();
-                obj.put("Schedule Station", parseScheduleStationToJSON(sch));
-                writeStringToFile(obj.toString(), "Schedule-Station", "json");
+                obj.put("schedule_station", parseScheduleStationToJSON(sch));
+                writeStringToFile(obj.toString(), "schedule_station", "json");
             }
             if(cb_teamrankings.isSelected()){
                 JSONObject obj = new JSONObject();
-                obj.put("Team Rankings", parseTeamRankingToJSON(ter));
-                writeStringToFile(obj.toString(), "Team-Rankings", "json");
+                obj.put("team_rankings", parseTeamRankingToJSON(ter));
+                writeStringToFile(obj.toString(), "team_rankings", "json");
             }
             if(cb_allevents.isSelected()){
                 JSONObject obj = new JSONObject();
-                obj.put("Events", parseEventsToJSON(eve));
-                writeStringToFile(obj.toString(), "Events", "json");
+                obj.put("events", parseEventsToJSON(eve));
+                writeStringToFile(obj.toString(), "events", "json");
             }
             if(cb_allteams.isSelected()){
                 JSONObject obj = new JSONObject();
-                obj.put("Teams", parseTeamsToJSON(tem));
-                writeStringToFile(obj.toString(), "Teams", "json");
+                obj.put("teams", parseTeamsToJSON(tem));
+                writeStringToFile(obj.toString(), "teams", "json");
             }
         }
         if(cb_combinedjson.isSelected()){
             JSONObject obj = new JSONObject();
             if(cb_advancements.isSelected()){
-
+                System.out.println("Advancements Called but not Ready Yet");
             }
             if(cb_awards.isSelected()){
-                obj.put("Awards", parseAwardToJSON(awa));
+                obj.put("awards", parseAwardToJSON(awa));
             }
             if(cb_alliance.isSelected()){
-                obj.put("Alliances", parseAllianceToJSON(all));
+                obj.put("alliances", parseAllianceToJSON(all));
             }
             if(cb_eventparticipants.isSelected()){
-                obj.put("Event Teams", parseEventTeamsToJSON(etm));
+                obj.put("event_teams", parseEventTeamsToJSON(etm));
             }
             if(cb_matches.isSelected()){
-                obj.put("Matches", parseMatchesToJSON(mat));
+                obj.put("matches", parseMatchesToJSON(mat));
             }
             if(cb_matchdetails.isSelected()){
-                obj.put("Match Details", parseMatchDetailsToJSON(mad));
+                obj.put("match_details", parseMatchDetailsToJSON(mad));
             }
             if(cb_schedulestation.isSelected()){
-                obj.put("Schedule Station", parseScheduleStationToJSON(sch));
+                obj.put("schedule_station", parseScheduleStationToJSON(sch));
             }
             if(cb_teamrankings.isSelected()){
-                obj.put("Team Rankings", parseTeamRankingToJSON(ter));
+                obj.put("team_rankings", parseTeamRankingToJSON(ter));
             }
             if(cb_allevents.isSelected()){
-                obj.put("All Events", parseEventsToJSON(eve));
+                obj.put("all_events", parseEventsToJSON(eve));
             }
             if(cb_allteams.isSelected()){
-                obj.put("All Teams", parseTeamsToJSON(tem));
+                obj.put("all_teams", parseTeamsToJSON(tem));
             }
             writeStringToFile(obj.toString(), "All", "json");
         }
         if(cb_csv.isSelected()){
             if(cb_advancements.isSelected()){
-
+                System.out.println("Advancements Called but not Ready Yet");
             }
             if(cb_awards.isSelected()){
                 parseJSONtoCSV("Awards", parseAwardToJSON(awa));
@@ -510,20 +499,23 @@ public class Controller implements Initializable {
         }
     }
 
-    public void writeStringToFile(String output, String fileName, String ext) {
+    private void writeStringToFile(String output, String fileName, String ext) {
         try {
             File file = new File(tb_location.getText() + "\\" + tb_eventkey.getText() + "-" + fileName + "." + ext);
-            file.createNewFile();
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(output);
-            fileWriter.flush();
-            fileWriter.close();
+            if(!file.exists()){
+                if(file.createNewFile()){
+                    FileWriter fileWriter = new FileWriter(file);
+                    fileWriter.write(output);
+                    fileWriter.flush();
+                    fileWriter.close();
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public JSONArray parseAwardToJSON(List<Award> award) {
+    private JSONArray parseAwardToJSON(List<Award> award) {
         JSONArray awards = new JSONArray();
         int i = 0;
         while (award.size() > i){
@@ -540,7 +532,7 @@ public class Controller implements Initializable {
         return awards;
     }
 
-    public JSONArray parseAllianceToJSON(List<Alliance> alliance) {
+    private JSONArray parseAllianceToJSON(List<Alliance> alliance) {
         JSONArray alliances = new JSONArray();
         int i = 0;
         while (alliance.size() > i){
@@ -559,7 +551,7 @@ public class Controller implements Initializable {
         return alliances;
     }
 
-    public JSONArray parseEventTeamsToJSON(List<EventTeam> eventPar) {
+    private JSONArray parseEventTeamsToJSON(List<EventTeam> eventPar) {
         JSONArray team = new JSONArray();
         int i = 0;
         while (eventPar.size() > i){
@@ -585,42 +577,42 @@ public class Controller implements Initializable {
         return team;
     }
 
-    public JSONArray parseMatchesToJSON(List<Match> matches) {
+    private JSONArray parseMatchesToJSON(List<Match> matches) {
         JSONArray match = new JSONArray();
         int i = 0;
         while (matches.size() > i){
             JSONObject obj = new JSONObject();
-            obj.put("MatchID", matches.get(i).getMatchID());
-            obj.put("EventID", matches.get(i).getEventID());
-            obj.put("TournamentLevel", matches.get(i).getTournamentLevel());
-            obj.put("ScheduleTime", matches.get(i).getScheduleTime());
-            obj.put("MatchName", matches.get(i).getMatchName());
-            obj.put("PlayNumber", matches.get(i).getPlayNumber());
-            obj.put("FieldNumber", matches.get(i).getFieldNumber());
-            obj.put("PreStartInitialTime", matches.get(i).getPreStartInitialTime());
-            obj.put("PreStartFinalTime", matches.get(i).getPreStartFinalTime());
-            obj.put("PreStartCount", matches.get(i).getPreStartCount());
-            obj.put("AutoStartTime", matches.get(i).getAutoStartTime());
-            obj.put("AutoEndTime", matches.get(i).getAutoEndTime());
-            obj.put("TeleopStartTime", matches.get(i).getTeleopStartTime());
-            obj.put("TeleopEndTime", matches.get(i).getTeleopEndTime());
-            obj.put("RefCommitTime", matches.get(i).getRefCommitTime());
-            obj.put("ScoreKeeperCommitTime", matches.get(i).getScoreKeeperCommitTime());
-            obj.put("ScorePostTime", matches.get(i).getScorePostTime());
-            obj.put("CancelMatchTime", matches.get(i).getCancelMatchTime());
-            obj.put("CycleTime", matches.get(i).getCycleTime());
-            obj.put("RedScore", matches.get(i).getRedScore());
-            obj.put("BlueScore", matches.get(i).getBlueScore());
-            obj.put("RedPenalty", matches.get(i).getRedPenalty());
-            obj.put("BluePenalty", matches.get(i).getBluePenalty());
-            obj.put("RedAutoScore", matches.get(i).getRedAutoScore());
-            obj.put("BlueAutoScore", matches.get(i).getBlueAutoScore());
-            obj.put("RedTeleScore", matches.get(i).getRedTeleScore());
-            obj.put("BlueTeleScore", matches.get(i).getBlueTeleScore());
-            obj.put("RedEndScore", matches.get(i).getRedEndScore());
-            obj.put("BlueEndScore", matches.get(i).getBlueEndScore());
-            obj.put("HeadRefReview", matches.get(i).getHeadRefReview());
-            obj.put("VideoURL", matches.get(i).getVideoURL());
+            obj.put("match_key", matches.get(i).getMatchID());
+            obj.put("event_key", matches.get(i).getEventID());
+            obj.put("tournament_level", matches.get(i).getTournamentLevel());
+            obj.put("schedule_time", matches.get(i).getScheduleTime());
+            obj.put("match_name", matches.get(i).getMatchName());
+            obj.put("play_number", matches.get(i).getPlayNumber());
+            obj.put("field_number", matches.get(i).getFieldNumber());
+            obj.put("pre_start_initial_time", matches.get(i).getPreStartInitialTime());
+            obj.put("pre_start_final_ime", matches.get(i).getPreStartFinalTime());
+            obj.put("pre_start_count", matches.get(i).getPreStartCount());
+            obj.put("auto_start_time", matches.get(i).getAutoStartTime());
+            obj.put("auto_end_time", matches.get(i).getAutoEndTime());
+            obj.put("teleop_start_time", matches.get(i).getTeleopStartTime());
+            obj.put("teleop_end_time", matches.get(i).getTeleopEndTime());
+            obj.put("ref_commit_time", matches.get(i).getRefCommitTime());
+            obj.put("score_keeper_commit_time", matches.get(i).getScoreKeeperCommitTime());
+            obj.put("score_post_time", matches.get(i).getScorePostTime());
+            obj.put("cancel_match_time", matches.get(i).getCancelMatchTime());
+            obj.put("cycle_time", matches.get(i).getCycleTime());
+            obj.put("red_score", matches.get(i).getRedScore());
+            obj.put("blue_score", matches.get(i).getBlueScore());
+            obj.put("red_penalty", matches.get(i).getRedPenalty());
+            obj.put("blue_penalty", matches.get(i).getBluePenalty());
+            obj.put("red_ auto_score", matches.get(i).getRedAutoScore());
+            obj.put("blue_auto_score", matches.get(i).getBlueAutoScore());
+            obj.put("red_tele_score", matches.get(i).getRedTeleScore());
+            obj.put("blue_tele_score", matches.get(i).getBlueTeleScore());
+            obj.put("red_end_score", matches.get(i).getRedEndScore());
+            obj.put("blue_end_score", matches.get(i).getBlueEndScore());
+            obj.put("head_ref_review", matches.get(i).getHeadRefReview());
+            obj.put("video_url", matches.get(i).getVideoURL());
             match.put(obj);
             i++;
         }
@@ -628,37 +620,37 @@ public class Controller implements Initializable {
         return match;
     }
 
-    public JSONArray parseMatchDetailsToJSON(List<MatchDetails> matchDetails) {
+    private JSONArray parseMatchDetailsToJSON(List<MatchDetails> matchDetails) {
         JSONArray match = new JSONArray();
         int i = 0;
         while (matchDetails.size() > i){
             JSONObject obj = new JSONObject();
-            obj.put("MatchDtlKey", matchDetails.get(i).getMatchDtlKey());
-            obj.put("MatchID", matchDetails.get(i).getMatchID());
-            obj.put("RedAutoBeacons", matchDetails.get(i).getRedAutoBeacons());
-            obj.put("RedAutoCap", matchDetails.get(i).getRedAutoCap());
-            obj.put("RedAutoPartCen", matchDetails.get(i).getRedAutoPartCen());
-            obj.put("RedAutoPartCor", matchDetails.get(i).getRedAutoPartCor());
-            obj.put("RedAutoRobot1", matchDetails.get(i).getRedAutoRobot1());
-            obj.put("RedAutoRobot2", matchDetails.get(i).getRedAutoRobot2());
-            obj.put("RedDriverBeacons", matchDetails.get(i).getRedDriverBeacons());
-            obj.put("RedDriverPartCen", matchDetails.get(i).getRedDriverPartCen());
-            obj.put("RedDriverPartCor", matchDetails.get(i).getRedDriverPartCor());
-            obj.put("RedDriverCap", matchDetails.get(i).getRedDriverCap());
-            obj.put("RedPenMaj", matchDetails.get(i).getRedPenMaj());
-            obj.put("RedPenMin", matchDetails.get(i).getRedPenMin());
-            obj.put("BlueAutoBeacons", matchDetails.get(i).getBlueAutoBeacons());
-            obj.put("BlueAutoCap", matchDetails.get(i).getBlueAutoCap());
-            obj.put("BlueAutoPartCen", matchDetails.get(i).getBlueAutoPartCen());
-            obj.put("BlueAutoPartCor", matchDetails.get(i).getBlueAutoPartCor());
-            obj.put("BlueAutoRobot1", matchDetails.get(i).getBlueAutoRobot1());
-            obj.put("BlueAutoRobot2", matchDetails.get(i).getBlueAutoRobot2());
-            obj.put("BlueDriverBeacons", matchDetails.get(i).getBlueDriverBeacons());
-            obj.put("BlueDriverPartCen", matchDetails.get(i).getBlueDriverPartCen());
-            obj.put("BlueDriverPartCor", matchDetails.get(i).getBlueDriverPartCor());
-            obj.put("BlueDriverCap", matchDetails.get(i).getBlueDriverCap());
-            obj.put("BluePenMaj", matchDetails.get(i).getBluePenMaj());
-            obj.put("BluePenMin", matchDetails.get(i).getBluePenMin());
+            obj.put("match_dtl_key", matchDetails.get(i).getMatchDtlKey());
+            obj.put("match_key", matchDetails.get(i).getMatchID());
+            obj.put("red_auto_beacons", matchDetails.get(i).getRedAutoBeacons());
+            obj.put("red_auto_cap", matchDetails.get(i).getRedAutoCap());
+            obj.put("red_auto_part_cen", matchDetails.get(i).getRedAutoPartCen());
+            obj.put("red_auto_part_cor", matchDetails.get(i).getRedAutoPartCor());
+            obj.put("red_auto_robot1", matchDetails.get(i).getRedAutoRobot1());
+            obj.put("red_auto_robot2", matchDetails.get(i).getRedAutoRobot2());
+            obj.put("red_driver_beacons", matchDetails.get(i).getRedDriverBeacons());
+            obj.put("red_driver_part_cen", matchDetails.get(i).getRedDriverPartCen());
+            obj.put("red_driver_part_cor", matchDetails.get(i).getRedDriverPartCor());
+            obj.put("red_driver_cap", matchDetails.get(i).getRedDriverCap());
+            obj.put("red_pen_maj", matchDetails.get(i).getRedPenMaj());
+            obj.put("red_pen_min", matchDetails.get(i).getRedPenMin());
+            obj.put("blue_auto_beacons", matchDetails.get(i).getBlueAutoBeacons());
+            obj.put("blue_auto_cap", matchDetails.get(i).getBlueAutoCap());
+            obj.put("blue_auto_part_cen", matchDetails.get(i).getBlueAutoPartCen());
+            obj.put("blue_auto_part_cor", matchDetails.get(i).getBlueAutoPartCor());
+            obj.put("blue_auto_robot1", matchDetails.get(i).getBlueAutoRobot1());
+            obj.put("blue_auto_robot2", matchDetails.get(i).getBlueAutoRobot2());
+            obj.put("blue_driver_beacons", matchDetails.get(i).getBlueDriverBeacons());
+            obj.put("blue_driver_part_cen", matchDetails.get(i).getBlueDriverPartCen());
+            obj.put("blue_driver_part_cor", matchDetails.get(i).getBlueDriverPartCor());
+            obj.put("blue_driver_cap", matchDetails.get(i).getBlueDriverCap());
+            obj.put("blue_pen_maj", matchDetails.get(i).getBluePenMaj());
+            obj.put("blue_pen_min", matchDetails.get(i).getBluePenMin());
             match.put(obj);
             i++;
         }
@@ -666,7 +658,7 @@ public class Controller implements Initializable {
         return match;
     }
 
-    public JSONArray parseScheduleStationToJSON(List<ScheduleStation> scheduleStations) {
+    private JSONArray parseScheduleStationToJSON(List<ScheduleStation> scheduleStations) {
         JSONArray ss = new JSONArray();
         int i = 0;
         while (scheduleStations.size() > i){
@@ -685,7 +677,7 @@ public class Controller implements Initializable {
         return ss;
     }
 
-    public JSONArray parseTeamRankingToJSON(List<TeamRanking> teamRankings) {
+    private JSONArray parseTeamRankingToJSON(List<TeamRanking> teamRankings) {
         JSONArray teamRank = new JSONArray();
         int i = 0;
         while (teamRankings.size() > i){
@@ -710,42 +702,42 @@ public class Controller implements Initializable {
         return teamRank;
     }
 
-    public JSONArray parseEventsToJSON(List<Event> events) {
+    private JSONArray parseEventsToJSON(List<Event> events) {
         JSONArray event = new JSONArray();
         int i = 0;
         while (events.size() > i){
             JSONObject obj = new JSONObject();
-            obj.put("EventID", events.get(i).getEventID());
-            obj.put("SeasonID", events.get(i).getSeasonID());
-            obj.put("RegionID", events.get(i).getRegionID());
-            obj.put("LeagueID", events.get(i).getLeagueID());
-            obj.put("EventCode", events.get(i).getEventID());
-            obj.put("EventRegionNum", events.get(i).getEventRegionNum());
-            obj.put("DivisionID", events.get(i).getDivisionID());
-            obj.put("EventTypeID", events.get(i).getEventTypeID());
-            obj.put("EventName", events.get(i).getEventName());
-            obj.put("DivisionName", events.get(i).getDivisionName());
-            obj.put("StartDate", events.get(i).getStartDate());
-            obj.put("EndDate", events.get(i).getEndDate());
-            obj.put("WeekID", events.get(i).getWeekID());
-            obj.put("City", events.get(i).getCity());
-            obj.put("StateProv", events.get(i).getStateProv());
-            obj.put("Country", events.get(i).getCountry());
-            obj.put("Venue", events.get(i).getVenue());
-            obj.put("EventWebsite", events.get(i).getEventWebsite());
-            obj.put("TimeZone", events.get(i).getTimeZone());
-            obj.put("ActiveTournamentLevel", events.get(i).getActiveTournamentLevel());
-            obj.put("AllianceCount", events.get(i).getAllianceCount());
-            obj.put("NumberOfFields", events.get(i).getNumberOfFields());
-            obj.put("AdvanceSpots", events.get(i).getAdvanceSpots());
-            obj.put("AdvancementEvent", events.get(i).getAdvancementEvent());
+            obj.put("event_key", events.get(i).getEventID());
+            obj.put("season_key", events.get(i).getSeasonID());
+            obj.put("region_key", events.get(i).getRegionID());
+            obj.put("league_key", events.get(i).getLeagueID());
+            obj.put("event_code", events.get(i).getEventID());
+            obj.put("event_region_um", events.get(i).getEventRegionNum());
+            obj.put("division_key", events.get(i).getDivisionID());
+            obj.put("event_type_key", events.get(i).getEventTypeID());
+            obj.put("event_name", events.get(i).getEventName());
+            obj.put("division_name", events.get(i).getDivisionName());
+            obj.put("start_date", events.get(i).getStartDate());
+            obj.put("end_date", events.get(i).getEndDate());
+            obj.put("week_key", events.get(i).getWeekID());
+            obj.put("city", events.get(i).getCity());
+            obj.put("state_prov", events.get(i).getStateProv());
+            obj.put("country", events.get(i).getCountry());
+            obj.put("venue", events.get(i).getVenue());
+            obj.put("event_website", events.get(i).getEventWebsite());
+            obj.put("time_zone", events.get(i).getTimeZone());
+            obj.put("active_tournament_evel", events.get(i).getActiveTournamentLevel());
+            obj.put("alliance_count", events.get(i).getAllianceCount());
+            obj.put("number_of_fields", events.get(i).getNumberOfFields());
+            obj.put("advance_spots", events.get(i).getAdvanceSpots());
+            obj.put("advancement_event", events.get(i).getAdvancementEvent());
             event.put(obj);
             i++;
         }
         return event;
     }
 
-    public JSONArray parseTeamsToJSON(List<Team> teams) {
+    private JSONArray parseTeamsToJSON(List<Team> teams) {
         JSONArray team = new JSONArray();
         int i = 0;
         while (teams.size() > i){
@@ -768,8 +760,7 @@ public class Controller implements Initializable {
         return team;
     }
 
-    public void parseJSONtoCSV(String fileName, JSONArray json){
-        String csv = CDL.toString(json);
-        writeStringToFile(csv, fileName, "csv");
+    private void parseJSONtoCSV(String fileName, JSONArray json){
+        writeStringToFile(CDL.toString(json), fileName, "csv");
     }
 }
